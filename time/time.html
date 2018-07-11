@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DVP</title>
+        <!-- preloading images due to flex display problems with IE11-->
+        <link rel="preload" href="../css/style.css" as="style" type="text/css"> 
+        <link rel="preload" href="img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="preload" href="img/photo02.jpg" as="image" type="image/jpg">
+        <link rel="preload" href="img/photo03.jpg" as="image" type="image/jpg">
+        <link rel="preload" href="img/photo04.jpg" as="image" type="image/jpg">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+    </head>    
+    
+    <body class="flex_center">
+        <script type="text/javascript" src="../js/script.js"></script>
+        <main>
+                <header class="title_color">
+                    <nav class="flex_center">
+                        <h1>
+                            <a href="../"><span style=color:white;font-weight:200>daniel vera</span> photography</a>
+                        </h1>
+                    </nav>
+                    <nav class="flex_center">
+                            <div class="links">
+                                <a class="current" href="../time/time.html">time</a>
+                            </div>
+                            <div class="links">
+                                <a href="../night/night.html">night</a>
+                            </div>
+                            <div class="links">
+                                <a href="../birds/birds.html">birds</a>
+                            </div>
+                            <div class="links">
+                                <a href="../landscapes/landscapes.html">landscapes</a>
+                            </div>
+                    </nav>
+                </header>
+                <article>
+                    <div class="photoframe">
+                        <img class="photoborder cursor demo" src="img/photo01.jpg" onclick="openModal();currentSlide(1)" alt="wheel">
+                    </div>
+                    <div class="photoframe">
+                        <img class="photoborder cursor demo" src="img/photo02.jpg" onclick="openModal();currentSlide(2)" alt="walkway">
+                    </div>
+                    <div class="photoframe">
+                        <img class="photoborder cursor demo" src="img/photo03.jpg" onclick="openModal();currentSlide(3)" alt="water">
+                    </div>
+                    <div class="photoframe">
+                        <img class="photoborder cursor demo" src="img/photo04.jpg" onclick="openModal();currentSlide(4)" alt="cars">
+                    </div>
+                </article>
+                <section  class="title_color">
+                    <footer class="flex_center"><a href="mailto:photo@danielvera.com">photo@danielvera.com</a></footer>
+                    <footer class="flex_center"><a href="tel:(646)456-5521">(646)456-5521</a></footer>
+                </section>
+        </main>
+<!-- The Modal/Lightbox -->
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="mySlides">
+                <img class="photo_lightbox cursor" src="img/photo01.jpg" onclick="plusSlides(1)">
+            </div>
+            <div class="mySlides">
+                <img class="photo_lightbox cursor" src="img/photo02.jpg" onclick="plusSlides(1)">
+            </div>
+            <div class="mySlides">
+                <img class="photo_lightbox cursor" src="img/photo03.jpg" onclick="plusSlides(1)">
+            </div>
+            <div class="mySlides">
+                <img class="photo_lightbox cursor" src="img/photo04.jpg" onclick="plusSlides(1)">
+            </div>
+
+    <!-- Next/previous controls -->
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <!-- Caption text 
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+            -->
+        </div>
+      </div>
+    </body>
+</html>

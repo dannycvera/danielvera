@@ -1,0 +1,405 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:200,400,500,600');
+
+html, body {
+    /* for centering main div */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color:#000000;
+    font-family: 'Gothic A1', sans-serif;
+    color: white;
+}
+
+/* Main font color for most of the site. Still need to edit the background color of the scroll bar to match. */
+.title_color {
+    color: firebrick;
+}
+
+/* main container holding everything together as tightly as it can*/
+main{
+    border-radius:1.3vmin;
+    border:thin #ffffff solid;
+    height: 92%;
+    width: 92%;
+    text-align: center;
+}
+
+/* Main title of site */
+h1 {
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 4.5vmin;
+}
+
+/* For verticle centering and wrapping links using flex*/
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* contains two nav's side by side */
+header{  
+    display: flex;
+    justify-content: center;
+    height: 14%;
+    width: 100%;
+}
+
+/* top link container*/
+nav{
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 2.6vmin;
+    height: 100%;
+    width: 50%;
+}
+
+/* styling all links*/
+a {
+    color:inherit;
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+/* so navigation links stretch as needed and have a minimum width for breathing room */
+.links {
+    flex: 1 0 24%;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.current {
+    color: salmon;
+}
+
+/* Styling only the nav links when hovering or clicked on */
+.links a:hover {
+    font-weight: 600;
+    background-color: #000;
+    color: indianred;
+}
+
+.links a:active {
+    color: pink;
+}
+
+/* Photo Gallery is in the article tag*/
+article{                 /* contains all the images */
+    display: flex;
+    flex-flow: row nowrap;/* needed so the div's and images stay side by side */
+    border-top:thin #ffffff solid;
+    height:76%;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+ }
+ 
+ /* custon horizontal scroll bar for photos*/
+article::-webkit-scrollbar { /* custom white scroll bar */
+    background: white;
+    height: 1.3vmin;
+}
+
+/* custon horizontal scroll bar red thumb with shadows*/
+article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded edges */
+    width: 36%;
+    background-color: firebrick;
+    border-radius: 1.3vmin;
+    -webkit-box-shadow: inset 0 0 1.3vmin rgba(0,0,0,1);
+}
+
+/* needed to properly size each image */
+.photoframe {
+    display: flex;
+    height: 100%; /* all images are the same height, but the width will stretch as needed  */
+    flex: 0 0 auto;
+}                   
+
+/* need 5% for the horizontal scroll bar and boarders*/
+.photoborder {
+    height: 95%;
+    border:thin darkgrey solid;
+    margin: 1vmin;
+    flex: 0 0 auto;
+}
+
+.photoborder:hover {
+    height: 95%;
+    border-width: thin;
+    border-style: solid;
+    border-color: white;
+    margin: 1vmin;
+    flex: 0 0 auto;
+}
+
+/* contains bottom footers side by side */
+section {
+    display: flex;
+    height: 10%;
+    width: 100%;
+}
+
+footer {
+    height: 100%;
+    width: 50%;
+    font-size: 2.3vmin;
+    font-weight: 500;
+}
+
+/* splash page css */
+/* splash page css */
+/* splash page css */
+
+.flex_main {
+    display: flex;
+    overflow: hidden;
+}
+
+.splash_left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 2;
+    
+    padding: 3%;
+}
+
+.splash_right {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-left: thin #ffffff solid;
+}
+
+.splash_img {
+    height: 100%;
+}
+
+/* using h2 for title on splash page due to media change issues on other pages */
+/* cant use white-space: nowrap, otherwise the image starts getting pushed off screen */
+h2 {
+    text-decoration: none;
+    font-size: 4.6vmin;
+}
+
+
+/* Modal Light Box*/
+/* Modal Light Box*/
+/* Modal Light Box*/
+
+.photo_lightbox{
+    height: 98%;
+    max-width: 98%;
+    object-fit: contain;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: black;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2.4vmax;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2vmax;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Caption text */
+.caption-container {
+    font-size: 2vmax;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 50%;
+}
+
+
+/* Portrait mode Splash page */
+@media screen and (orientation: portrait) {
+
+   
+.flex_main {
+    display: flex;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main{
+    border-radius:1.3vmin;
+    border:thin #ffffff solid;
+    text-align: center;
+}
+
+/* using h2 for title on splash page due to media change issues on other pages */
+/* Can't use the same media/title font size changes for the splash page as the gallery page */
+h2 {
+    text-decoration: none;
+    font-size: 4vmin;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Rotating the h2 title to fit on a portait screen/ipads */
+.title_rotate{
+    transform: rotate(-90deg);
+    text-align: center;
+}
+ 
+.splash_left {
+    height: 100%;
+    width: 10%;
+}
+    
+.splash_right {
+    flex-basis: 98%;
+    object-fit: contain;
+    border-left: thin #ffffff solid;
+}
+
+.splash_img {
+    height: 100%;
+    width: 100%;
+}
+
+/* puts the title and navigatigation on top of each other for gallery pages */
+/* contains two nav's side by side */
+header{  
+    display: block;
+    height: 14%;
+    width: 100%;
+}
+
+/* top link container*/
+nav{
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 2.6vmin;
+    height: 50%;
+    width: auto;
+}
+/* Portrait mode Splash page end*/
+}
+
+/* Ultra Wide Splash page */
+@media screen and (min-aspect-ratio: 64/30) {
+
+.flex_main {
+    height: 92%;
+    width: 70%;
+}
+
+main{
+    border-radius: 1.3vmin;
+    border:thin #ffffff solid;
+    height: 98%;
+    width: 98%;
+    text-align: center;
+}
+
+nav{
+    font-size: 3.4vmin;
+    height: 100%;
+    width: 50%;
+}
+
+footer {
+    height: 100%;
+    width: 50%;
+    font-size: 2.8vmin;
+    font-weight: 500;
+}
+
+h2 a{
+    text-decoration: none;
+    font-size: 5vmin;
+    text-align: center;
+    white-space: nowrap;
+}
+/* Ultra Wide Splash page end*/
+}
