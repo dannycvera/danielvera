@@ -199,6 +199,7 @@ h2 {
     height: 98%;
     max-width: 98%;
     object-fit: contain;
+    border: thin white solid;
 }
 
 .cursor {
@@ -343,6 +344,7 @@ h2 {
 }
 
 .splash_img {
+    display: block;
     height: 100%;
     width: 100%;
 }
