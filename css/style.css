@@ -131,10 +131,9 @@ article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded 
 /* need 5% for the horizontal scroll bar and boarders*/
 .photoborder {
     display: block;
-    height: 95%;
+    height: 97%;
     border:thin darkgrey solid;
     margin: 1vmin;
-    flex: 1 1 95%;
 }
 
 .photoborder:hover {
