@@ -137,11 +137,7 @@ article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded 
 }
 
 .photoborder:hover {
-    height: 95%;
-    border-width: thin;
-    border-style: solid;
     border-color: white;
-    margin: 1vmin;
 }
 
 /* contains bottom footers side by side */
