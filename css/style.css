@@ -21,8 +21,8 @@ html, body {
 main {
     border-radius:1.3vmin;
     border:thin white solid;
-    height: 95%;
-    width: 95%;
+    height: 97%;
+    width: 97%;
     text-align: center;
 }
 
@@ -87,8 +87,6 @@ a:visited {
 
 /* Styling only the nav links when hovering or clicked on */
 .links a:hover {
-    font-weight: 500;
-    background-color: #000;
     color: indianred;
 }
 
@@ -105,7 +103,6 @@ article {                 /* contains all the images */
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
-
  }
  
  /* custon horizontal scroll bar for photos*/
@@ -124,13 +121,11 @@ article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded 
 
 /* needed to properly size each image */
 .photoframe {
-    display: block;
     height: 100%; /* all images are the same height, but the width will stretch as needed  */
 }                       
 
 /* need 5% for the horizontal scroll bar and boarders*/
 .photoborder {
-    display: block;
     height: 97%;
     border:thin darkgrey solid;
     margin: 1vmin;
@@ -168,7 +163,6 @@ footer {
     align-items: center;
     justify-content: center;
     flex-grow: 2;
-    
     padding: 3%;
 }
 
@@ -200,6 +194,7 @@ h2 {
     max-width: 98%;
     object-fit: contain;
     border: thin white solid;
+    
 }
 
 .cursor {
@@ -290,11 +285,14 @@ h2 {
 
 /* Caption text */
 .caption-container {
-    font-size: 2vmax;
-    color: white;
-    position: absolute;
-    top: 0;
-    right: 50%;
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  padding-top: 0;
+  text-align: center;
+  color: white;
+  font-size: 2vmin;
 }
 
 
@@ -306,17 +304,12 @@ h2 {
     display: flex;
     height: auto;
     width: auto;
-    max-width: 98%;
+    max-width: 97%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-main{
-    border-radius:1.3vmin;
-    border:thin white solid;
-    text-align: center;
-}
 
 /* using h2 for title on splash page due to media change issues on other pages */
 /* Can't use the same media/title font size changes for the splash page as the gallery page */
@@ -373,36 +366,12 @@ nav {
 @media screen and (min-aspect-ratio: 64/30) {
 
 .flex_main {
-    height: 92%;
+    height: 97%;
     width: 70%;
 }
 
-main {
-    border-radius: 1.3vmin;
-    border:thin white solid;
-    height: 98%;
-    width: 98%;
-    text-align: center;
-}
-
-nav {
-    font-size: 3.4vmin;
-    height: 100%;
-    width: 50%;
-}
-
-footer {
-    height: 100%;
-    width: 50%;
-    font-size: 2.8vmin;
-    font-weight: 500;
-}
-
-h2 a {
-    text-decoration: none;
+h2 {
     font-size: 5vmin;
-    text-align: center;
-    white-space: nowrap;
 }
 /* Ultra Wide Splash page end*/
 }
