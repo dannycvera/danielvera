@@ -21,8 +21,8 @@ html, body {
 main {
     border-radius:1.3vmin;
     border:thin white solid;
-    height: 97%;
-    width: 97%;
+    height: 96%;
+    width: 96%;
     text-align: center;
 }
 
@@ -304,7 +304,7 @@ h2 {
     display: flex;
     height: auto;
     width: auto;
-    max-width: 97%;
+    max-width: 96%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -366,7 +366,6 @@ nav {
 @media screen and (min-aspect-ratio: 64/30) {
 
 .flex_main {
-    height: 97%;
     width: 70%;
 }
 
