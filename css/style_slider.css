@@ -1,0 +1,674 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:200,400,500,600');
+
+/* Used to include padding and border within height or width percentages */
+/* not compatible with IE 11. Had to remove*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* Animations*/
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.page-fade-in {
+  opacity:0;  /* make things invisible upon start*/
+
+  -webkit-animation-name: fadeIn; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time*/
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+  
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timeing-function: ease-in;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+ 
+  -webkit-animation-duration:0.5s;
+  -moz-animation-duration:0.5s;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+.page-fade-out {
+  opacity:1;  /* make things visable upon start */
+ 
+  -webkit-animation-name: fadeOut; /* call our keyframe named fadeOut, use animattion ease-in and repeat it only 1 time  */
+  -moz-animation-name: fadeOut;
+  animation-name: fadeOut;
+  
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timeing-function: ease-in;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+ 
+  -webkit-animation-duration:0.5s;
+  -moz-animation-duration:0.5s;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
+@-moz-keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
+@keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
+
+
+.scrollUp {
+  -webkit-animation-name: scroll-Up; /* call our keyframe named scroll-Up, use animattion ease-in and repeat it only 1 time  */
+  -moz-animation-name: scroll-Up;
+  animation-name: scroll-Up;
+  
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timeing-function: ease-in;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value */
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+ 
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
+@-moz-keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
+@keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
+
+.scrollDown {
+  -webkit-animation-name: scroll-Down; /* call our keyframe named scroll-Up, use animattion ease-in and repeat it only 1 time  */
+  -moz-animation-name: scroll-Down;
+  animation-name: scroll-Down;
+  
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timeing-function: ease-in;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value */
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+ 
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration: 0.3s;
+}
+/* Animations end */
+
+html, body {
+    /* for centering main div */
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 100%;
+    color: white;
+}
+
+ /* custon horizontal scroll bar for photos*/
+body::-webkit-scrollbar { /* custom white scroll bar */
+    background: white;
+    width: 8px;
+}
+
+/* custon horizontal scroll bar red thumb with shadows*/
+body::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded edges */
+    width: 8px;
+    background-color: firebrick;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,1);
+}
+
+header {
+    margin:0;
+    padding:0;
+    height: 68px;
+    background-color: black;
+}
+
+/* main container holding everything together as tightly as it can*/
+
+main {
+    margin: auto;
+    width: 98%;
+    border-radius: 5px;
+    border:thin white solid;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Main title of site */
+/* Main font color for all links on the site. Still need to edit the background color of the scroll bar to match. */
+h4 a, nav a, footer a, h1 a{
+    color: firebrick;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* for white span tag on name*/
+.logo{
+ color: white;
+ font-weight: 200;
+}
+
+/* Styling only the nav links when hovering or clicked on */
+nav a:hover, nav a:focus, footer a:hover, footer a:focus, 
+h1 a:hover, h1 a:focus, h4 a:hover, h4 a:focus   {
+    color: pink;
+    text-decoration: none;
+}
+
+.current {
+    color: salmon;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(178,34,34, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+button:focus,button:active {
+   outline: none;
+   box-shadow: none;
+}
+
+/* top link container*/
+nav {
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    background-color: black;
+    border:thin white solid;
+    margin-top: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+/* so navigation links stretch as needed and have a minimum width for breathing room */
+}
+
+/* Photo Gallery is in the article tag*/
+/* contains all the images */
+.gallery {  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 98%;
+    padding-left: 1vmin;
+    padding-right: 1vmin;
+    padding-bottom: 1vmin;
+    padding-top: 72px;
+    overflow: hidden;
+    border-left: thin white solid;
+    border-right: thin white solid;
+    margin: auto;
+    height: auto;
+    min-height: 90vh;
+    
+}
+
+/* contains bottom footers side by side */
+
+footer {
+    height: 40px;
+    
+}
+
+.contactinfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 98%;
+    white-space:  nowrap;
+    flex: 0;
+    border: thin white solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* splash page css */
+/* splash page css */
+/* splash page css */
+
+
+.splash_body{
+        /* for centering main div */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+} 
+
+.splash_main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+    height: 98%;
+}
+
+.splash_left {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1 2 5%;
+    padding: 1%;
+}
+
+.splash_right {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-left: thin white solid;
+}
+
+.splash_link {
+    display: block;
+    height: 96%;
+}
+
+.splash_img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-left: thin white solid;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+.splash_img:hover {
+    transform: scale(1.01);
+}
+
+.splash_img:active {
+    transform: scale(1.003);
+}
+
+/* cant use white-space: nowrap, otherwise the image starts getting pushed off screen */
+h1 {
+    text-align: right;
+    white-space: wrap
+}
+
+/* Modal Light Box*/
+/* Modal Light Box*/
+/* Modal Light Box*/
+
+.photo {
+    display: block;
+    max-height: 56vh;
+    max-width: 98%;
+    -webkit-transition-property: transform;
+    -webkit-transition-duration: 200ms;
+    -moz-transition-property: transform;
+    -moz-transition-duration: 200ms;
+    -o-transition-property: transform;
+    -o-transition-duration: 200ms;
+    transition-property: transform;
+    transition-duration: 200ms;
+    
+    margin: 5px;
+    cursor: pointer;
+    border: thin darkgrey solid;
+    border-radius: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+    object-fit: cover;
+    object-fit: contain;
+}
+
+.photo:hover {
+    -webkit-transform: scale(1.006) !important;
+    -ms-transform: scale(1.006) !important;
+    transform: scale(1.006) !important;
+
+}
+
+.photo:active {
+    -webkit-transform: scale(.988) !important;
+    -ms-transform: scale(.988) !important;
+    transform: scale(.988) !important;
+}
+
+.largePhoto {
+    max-height: 98%;
+    z-index: 1;
+    display: block;
+    
+}
+
+.largePhoto:hover {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+}
+
+
+.largePhoto:active {
+    -webkit-transform: scale(.988) !important;
+    -ms-transform: scale(.988) !important;
+    transform: scale(.988) !important;
+}
+
+
+/* The Modal (background) */
+.lightBox {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+/* The Close Button */
+.closeimage {
+    display: flex;  
+    width: 10%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 0.3;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: calc(4 * (1vw + 1vh - 1vmin));
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.5s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    font-weight: bold;
+}
+
+.closeimage:hover,
+.closeimage:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+    
+}
+
+/* Next & previous buttons */
+.previous,
+.nextone {
+    display: flex;  
+    width: 10%;
+    height: 50%;
+    padding: 15px;
+    align-items: center;
+    position: absolute;
+    text-decoration: none;
+    opacity: 0.09;
+    font-weight: bold;
+    font-size: calc(3 * (1vw + 1vh - 1vmin));
+    transition: 0.5s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Position the "next button" to the right */
+
+.nextone {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+    justify-content: flex-end;
+}
+
+.previous {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+    justify-content: flex-start;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+.previous:hover,
+.previous:focus,
+.nextone:hover,
+.nextone:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity:0.7;
+    color: white;
+}
+
+/* Caption text */
+.caption-container {
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  padding-top: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2vmin;
+  z-index: 2;
+}
+
+/* solves galaxy S5 and iPhone 5 issues
+@media screen and (max-width: 360px){
+    h4, h1 {
+    /*font-size: calc(3.3 * (1vw + 1vh - 1vmin));
+
+     font-size: 1.15rem;
+}
+}
+*/
+
+@media screen and (max-width: 768px){
+    h4, h1 {
+     font-size: 1.15rem;
+}
+
+header {
+    height: 60px;
+}
+
+nav {
+    margin-top: 4px;
+}
+
+.navbar .navbar-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.gallery {
+  padding-top: 62px;  
+}
+
+/*
+.contactinfo{
+    margin-bottom: 5px;
+    height: 25px;
+}
+*/
+
+footer {
+    margin-bottom: 5px;
+    height: 25px;
+
+    
+    font-size: .8rem;
+    
+    /*    height: 28px; */
+}
+}
+
+/* Portrait mode Splash page */
+@media screen and (orientation: portrait) {
+
+
+.photo {
+    max-height: 90vh;
+   /* margin: 5px; */
+}
+
+.largePhoto {
+    max-height: 98%;
+}
+h1 {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Rotating the h1 title to fit on a portait screen/ipads */
+.title_rotate {
+    transform: rotate(-90deg);
+    flex:0;
+}
+ 
+.splash_main {
+    display: flex;
+    flex-direction: row;
+    max-height: 98%;
+    height: auto;
+    width: auto;
+    max-width: 98%;
+}
+
+.splash_left {
+    width: 10%;
+}
+    
+.splash_img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    border-left: thin white solid;
+}
+}
+
+/*for Iphone 6,7,8 and X */
+@supports (-webkit-overflow-scrolling: touch) 
+{ 
+.close {
+    top: 20px;
+}
+}
+
+/*
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+}
+
+.navbar-toggler {
+  
+}
+/* Photo Gallery is in the article tag
+article {                 /* contains all the images 
+    height: 90%;
+ }
+ 
+ /*
+ /* custon horizontal scroll bar for photos
+article::-webkit-scrollbar { /* custom white scroll bar 
+    width: 1.5vmin;
+}
+
+/* custon horizontal scroll bar red thumb with shadows
+article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded edges 
+    width: 1.5%;
+    border-radius: 2vmin;
+    -webkit-box-shadow: inset 0 0 1vmin rgba(0,0,0,1);
+}
+*/
+
+
+
+/* end of portait gallery display */
+/*
+footer {
+    
+    
+    /*font-size: calc(2.3 * (1vw + 1vh - 1vmin));
+    
+}
+
+/* splash page css */
+
+/* using h1 for title on splash page due to media change issues on other pages */
+/* Can't use the same media/title font size changes for the splash page as the gallery page */
+
+
+/* Portrait mode Splash page end*/
+
+/* iPhone X Ultra Wide Screen portrait mode
+@media screen and (max-aspect-ratio: 10/20) {
+
+h4 {
+    font-size: calc(2.7 * (1vw + 1vh - 1vmin));
+}
+nav {
+    font-size: calc(2.4* (1vw + 1vh - 1vmin));
+}
+
+footer {
+ font-size: calc(1.
+    * (1vw + 1vh - 1vmin));
+}
+}
+
+/* Ultra Wide Splash page 
+@media screen and (min-aspect-ratio: 64/30) {
+
+/* splash page css 
+.splash_main {
+}
+
+/* using h1 for title on splash page due to media change issues on other pages */
+
+/* Ultra Wide Splash page end
+}
+*/

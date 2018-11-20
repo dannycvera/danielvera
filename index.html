@@ -1,26 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="splash_body">
     <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>daniel vera photography</title>
-         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/img/site.webmanifest">
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="/img/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
         <!-- preloading images due to flex display problems with IE11-->
-        <link rel="preload" href="img/photo01.jpg" as="image" type="image/jpg">
-        <link rel="preload" href="css/style.css" as="style" type="text/css"> 
-
-        <link rel="stylesheet" href="css/style.css" type="text/css"> 
+        <link rel="prefetch" href="img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo02.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo03.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo04.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo05.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo06.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo07.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="birds/img/photo08.jpg" as="image" type="image/jpg">
+        
+        <link rel="prefetch" href="night/img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo02.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo03.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo04.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo05.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo06.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="night/img/photo08.jpg" as="image" type="image/jpg">        
+        
+        <link rel="prefetch" href="time/img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo02.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo03.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo04.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo05.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo06.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo07.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="time/img/photo08.jpg" as="image" type="image/jpg">
+        
+        <link rel="prefetch" href="landscapes/img/photo01.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo02.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo03.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo04.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo05.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo06.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo07.jpg" as="image" type="image/jpg">
+        <link rel="prefetch" href="landscapes/img/photo08.jpg" as="image" type="image/jpg">
+        
+        <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Gothic+A1:200,400,500,600" as=“font” />
+        
+        
+        <link rel="prefetch" href="css/style_slider.css" as="style" type="text/css">
+        <link rel="prefetch" href="js/script_slider.js" as="script">
+        
+        <link rel="stylesheet" href="css/style_slider.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>    
-    <body class="flex_center">
-        <main class="flex_main">
+    <body class="splash_body">
+
+        <main class="splash_main">
+            <!-- site title -->
                 <div class="splash_left"> 
-                    <div class="title_rotate">
-                        <h2 class="title_color">
-                            <a href="time/time.html"><span class="logo">daniel vera</span> photography</a>
-                        </h2>
-                    </div>
-                </div>   
-                <div class="splash_right">
-                     <a href="time/time.html"><img class="splash_img" src="img/photo01.jpg" alt="red maple"></a>
+                    <h1 class="title_rotate"><a href="birds.html"><span class="logo">daniel vera</span> photography</a></h1>
                 </div>
+            <!-- large splash image. can't put inside a div otherwise issues with IE-->
+                <img class="splash_img" src="img/photo01.jpg" onclick="location.href='birds.html';" alt="red maple tree">
         </main>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="js/script_slider.js"></script>
     </body>
 </html>
