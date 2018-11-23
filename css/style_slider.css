@@ -119,7 +119,26 @@
   -moz-animation-duration:0.3s;
   animation-duration: 0.3s;
 }
-/* Animations end */
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.load-anim {
+    background-color: black;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Animations end background: url(../img/loading.svg) center no-repeat #000; */
 
 html, body {
     /* for centering main div */
@@ -150,18 +169,6 @@ header {
     padding:0;
     height: 68px;
     background-color: black;
-}
-
-/* main container holding everything together as tightly as it can*/
-
-main {
-    margin: auto;
-    width: 98%;
-    border-radius: 5px;
-    border:thin white solid;
-    height: auto;
-    padding: 0;
-    overflow: hidden;
 }
 
 /* Main title of site */
@@ -199,13 +206,13 @@ button:focus,button:active {
 }
 
 /* top link container*/
-nav {
+header nav {
     margin-left: auto;
     margin-right: auto;
     width: 98%;
-    background-color: black;
-    border:thin white solid;
     margin-top: 6px;
+    border:thin white solid;
+    background-color: black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 /* so navigation links stretch as needed and have a minimum width for breathing room */
@@ -229,7 +236,6 @@ nav {
     margin: auto;
     height: auto;
     min-height: 90vh;
-    
 }
 
 /* contains bottom footers side by side */
@@ -273,20 +279,40 @@ footer {
 } 
 
 .splash_main {
+    margin: auto;
+    padding: 0;
+    border-radius: 5px;
+    border:thin white solid;
+    width: 98%;
+    height: 98%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: row;
     overflow: hidden;
-    height: 98%;
 }
 
 .splash_left {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex: 1 2 5%;
+    justify-content: flex-end;
+    flex: 2 2 10%;
     padding: 1%;
+    flex-wrap: wrap;
+    font-size: larger;
+    border-top: thin white solid;
+    border-bottom: thin white solid;
+}
+
+.splash_left ul {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    
+}
+
+.splash_left h1 {
+    padding: 10px;
+    white-space: wrap;
+    text-align: right;
 }
 
 .splash_right {
@@ -294,11 +320,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-left: thin white solid;
-}
-
-.splash_link {
-    display: block;
-    height: 96%;
+    flex: 0;
 }
 
 .splash_img {
@@ -322,11 +344,6 @@ footer {
     transform: scale(1.003);
 }
 
-/* cant use white-space: nowrap, otherwise the image starts getting pushed off screen */
-h1 {
-    text-align: right;
-    white-space: wrap
-}
 
 /* Modal Light Box*/
 /* Modal Light Box*/
@@ -344,22 +361,21 @@ h1 {
     -o-transition-duration: 200ms;
     transition-property: transform;
     transition-duration: 200ms;
-    
     margin: 5px;
     cursor: pointer;
     border: thin darkgrey solid;
-    border-radius: 5px;
+    border-radius: 3px;
     user-select: none;
     -webkit-user-select: none;
     object-fit: cover;
     object-fit: contain;
+    overflow: hidden;
 }
 
 .photo:hover {
     -webkit-transform: scale(1.006) !important;
     -ms-transform: scale(1.006) !important;
     transform: scale(1.006) !important;
-
 }
 
 .photo:active {
@@ -398,7 +414,6 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
     align-items: center;
     justify-content: center;
 }
@@ -490,18 +505,76 @@ h1 {
   z-index: 2;
 }
 
-/* solves galaxy S5 and iPhone 5 issues
-@media screen and (max-width: 360px){
-    h4, h1 {
-    /*font-size: calc(3.3 * (1vw + 1vh - 1vmin));
+/* Portrait mode Splash page */
+@media screen and (orientation: portrait) {
 
-     font-size: 1.15rem;
+.photo {
+    max-height: 90vh;
+}
+
+.largePhoto {
+    max-height: 98%;
+}
+
+.navbar .navbar-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.splash_main {
+    max-height: 98%;
+    height: auto;
+    width: auto;
+    max-width: 98%;
+}
+
+.splash_left {
+    width: 10%;
+    transform: rotate(-90deg);
+    flex-wrap: nowrap;
+    border-style: none;
+    justify-content: center;
+    
+}
+.splash_left ul{
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+    
+.splash_left h1{
+    font-size: 1.7rem;
+    white-space: nowrap;
+}    
+    
+.splash_img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    border-left: thin white solid;
 }
 }
-*/
 
 @media screen and (max-width: 768px){
-    h4, h1 {
+.splash_left > a > h1{
+    font-size: 1.4rem;
+}  
+
+.splash_left {
+    font-size: medium;
+}
+
+.navbar .navbar-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+}
+
+@media screen and (max-width: 576px){
+h4 {
      font-size: 1.15rem;
 }
 
@@ -513,162 +586,29 @@ nav {
     margin-top: 4px;
 }
 
-.navbar .navbar-nav  {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
+.splash_left {
+    font-size: .7rem;
 }
+
+.splash_left > a > h1{
+    
+    font-size: 1rem;
+}  
 
 .gallery {
   padding-top: 62px;  
 }
 
-/*
-.contactinfo{
-    margin-bottom: 5px;
-    height: 25px;
-}
-*/
-
 footer {
     margin-bottom: 5px;
     height: 25px;
-
-    
     font-size: .8rem;
-    
-    /*    height: 28px; */
 }
 }
-
-/* Portrait mode Splash page */
-@media screen and (orientation: portrait) {
-
-
-.photo {
-    max-height: 90vh;
-   /* margin: 5px; */
-}
-
-.largePhoto {
-    max-height: 98%;
-}
-h1 {
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Rotating the h1 title to fit on a portait screen/ipads */
-.title_rotate {
-    transform: rotate(-90deg);
-    flex:0;
-}
- 
-.splash_main {
-    display: flex;
-    flex-direction: row;
-    max-height: 98%;
-    height: auto;
-    width: auto;
-    max-width: 98%;
-}
-
-.splash_left {
-    width: 10%;
-}
-    
-.splash_img {
-    width: 90%;
-    height: auto;
-    object-fit: contain;
-    border-left: thin white solid;
-}
-}
-
 /*for Iphone 6,7,8 and X */
 @supports (-webkit-overflow-scrolling: touch) 
 { 
-.close {
+.closeimage {
     top: 20px;
 }
 }
-
-/*
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50%;
-    width: 100%;
-}
-
-.navbar-toggler {
-  
-}
-/* Photo Gallery is in the article tag
-article {                 /* contains all the images 
-    height: 90%;
- }
- 
- /*
- /* custon horizontal scroll bar for photos
-article::-webkit-scrollbar { /* custom white scroll bar 
-    width: 1.5vmin;
-}
-
-/* custon horizontal scroll bar red thumb with shadows
-article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded edges 
-    width: 1.5%;
-    border-radius: 2vmin;
-    -webkit-box-shadow: inset 0 0 1vmin rgba(0,0,0,1);
-}
-*/
-
-
-
-/* end of portait gallery display */
-/*
-footer {
-    
-    
-    /*font-size: calc(2.3 * (1vw + 1vh - 1vmin));
-    
-}
-
-/* splash page css */
-
-/* using h1 for title on splash page due to media change issues on other pages */
-/* Can't use the same media/title font size changes for the splash page as the gallery page */
-
-
-/* Portrait mode Splash page end*/
-
-/* iPhone X Ultra Wide Screen portrait mode
-@media screen and (max-aspect-ratio: 10/20) {
-
-h4 {
-    font-size: calc(2.7 * (1vw + 1vh - 1vmin));
-}
-nav {
-    font-size: calc(2.4* (1vw + 1vh - 1vmin));
-}
-
-footer {
- font-size: calc(1.
-    * (1vw + 1vh - 1vmin));
-}
-}
-
-/* Ultra Wide Splash page 
-@media screen and (min-aspect-ratio: 64/30) {
-
-/* splash page css 
-.splash_main {
-}
-
-/* using h1 for title on splash page due to media change issues on other pages */
-
-/* Ultra Wide Splash page end
-}
-*/

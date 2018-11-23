@@ -1,11 +1,14 @@
 // JavaScript File
 
 //document.getElementsByTagName("body")[0].onload = function(){
-  unfade(document.getElementsByTagName("body")[0]);
+  //unfade(document.getElementsByTagName("body")[0]);
 //}
 
 
-$(document).ready(function() {
+window.onload = function() {
+
+  fade(document.getElementsByClassName("load-anim")[0]);
+
   //auto selects the current active link relative to the url 
   //$('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('current');
   // Navbar Fade-In effect when scrolling up or at top
@@ -47,7 +50,7 @@ $(document).ready(function() {
     var index = $(this).index();
     openModal(index+1);
   });
-});
+};
 
 function openModal(n) {
     if ($(".lightBox")[0])
@@ -127,6 +130,19 @@ function unfade(element) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 7);
+        op += 0.05;
+    }, 15);
+}
+
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.01){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= 0.05;
+    }, 15);
 }
