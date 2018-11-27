@@ -29,7 +29,5 @@ var loadSVG = document.createElement('img');
 loadSVG.setAttribute("src","img/loading.svg");
 //alert(window.location.pathname);
 loadSVG.setAttribute("type","image/svg+xml");
-loadSVG.setAttribute("height","200px");
-loadSVG.setAttribute("width","200px");
 
 loadDiv.appendChild(loadSVG);

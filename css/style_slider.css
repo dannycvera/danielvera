@@ -9,120 +9,97 @@
 }
 
 /* Animations*/
-
 /* make keyframes that tell the start state and the end state of our object */
+
+@-webkit-keyframes photoButton { 
+    0% { opacity:0.2;background-color: rgba(0, 0, 0, 0.1); } 
+    50% { opacity:1; background-color: rgba(0, 0, 0, 0.7);} 
+    100% { opacity:0.5; background-color: rgba(0, 0, 0, 0.2);} 
+}
+@-moz-keyframes photoButton { 
+    0% { opacity:0.2;background-color: rgba(0, 0, 0, 0.1); } 
+    50% { opacity:1; background-color: rgba(0, 0, 0, 0.7);} 
+    100% { opacity:0.5; background-color: rgba(0, 0, 0, 0.2);} 
+} 
+@keyframes photoButton { 
+    0% { opacity:0.2;background-color: rgba(0, 0, 0, 0.1); } 
+    50% { opacity:1; background-color: rgba(0, 0, 0, 0.7);} 
+    100% { opacity:0.5; background-color: rgba(0, 0, 0, 0.2);} 
+}
+
+@-webkit-keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
+@-moz-keyframes scroll-Up { 100% { -moz-transform: translate(0,-100%); } }
+@keyframes scroll-Up { 100% { transform: translate(0,-100%); } }
+
+@-webkit-keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
+@-moz-keyframes scroll-Down { 0% { -moz-transform: translate(0,-100%); } }
+@keyframes scroll-Down { 0% { transform: translate(0,-100%); } }
+
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.page-fade-in {
-  opacity:0;  /* make things invisible upon start*/
-
-  -webkit-animation-name: fadeIn; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time*/
-  -moz-animation-name: fadeIn;
-  animation-name: fadeIn;
-  
-  -webkit-animation-timing-function: ease-in;
-  -moz-animation-timeing-function: ease-in;
-  animation-timing-function: ease-in;
-  
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0)*/
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
- 
-  -webkit-animation-duration:0.5s;
-  -moz-animation-duration:0.5s;
-  animation-duration: 0.5s;
-}
 
 @-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
 @-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
 @keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
 
-.page-fade-out {
-  opacity:1;  /* make things visable upon start */
- 
-  -webkit-animation-name: fadeOut; /* call our keyframe named fadeOut, use animattion ease-in and repeat it only 1 time  */
-  -moz-animation-name: fadeOut;
-  animation-name: fadeOut;
-  
-  -webkit-animation-timing-function: ease-in;
-  -moz-animation-timeing-function: ease-in;
-  animation-timing-function: ease-in;
-  
+.page-fade-in, .page-fade-out,.scrollUp, .scrollDown,
+.closeimage:hover, .closeimage:focus, .previous:hover,
+.previous:focus, .nextone:hover, .nextone:focus,
+.photo:active, .largePhoto:active, .photo:hover {
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   animation-iteration-count: 1;
   
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0)*/
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
- 
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timeing-function: linear;
+  animation-timing-function: linear;
+  
+  -webkit-animation-fill-mode:both;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0)*/
+  -moz-animation-fill-mode:both;
+  animation-fill-mode:both;
+}
+
+.page-fade-in {
+  opacity:0;  /* make things invisible upon start*/
+  -webkit-animation-name: fadeIn; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time*/
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.page-fade-out {
+  opacity:1;  /* make things visable upon start */
+  -webkit-animation-name: fadeOut; /* call our keyframe named fadeOut, use animattion ease-in and repeat it only 1 time  */
+  -moz-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.page-fade-in, .page-fade-out {  
   -webkit-animation-duration:0.5s;
   -moz-animation-duration:0.5s;
   animation-duration: 0.5s;
 }
 
-@-webkit-keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
-@-moz-keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
-@keyframes scroll-Up { 100% { -webkit-transform: translate(0,-100%); } }
-
-
 .scrollUp {
-  -webkit-animation-name: scroll-Up; /* call our keyframe named scroll-Up, use animattion ease-in and repeat it only 1 time  */
+  -webkit-animation-name: scroll-Down; /* call our keyframe named scroll-Up, use animattion ease-in and repeat it only 1 time  */
   -moz-animation-name: scroll-Up;
   animation-name: scroll-Up;
-  
-  -webkit-animation-timing-function: ease-in;
-  -moz-animation-timeing-function: ease-in;
-  animation-timing-function: ease-in;
-  
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value */
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
- 
-  -webkit-animation-duration:0.3s;
-  -moz-animation-duration:0.3s;
-  animation-duration: 0.3s;
 }
-
-@-webkit-keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
-@-moz-keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
-@keyframes scroll-Down { 0% { -webkit-transform: translate(0,-100%); } }
 
 .scrollDown {
   -webkit-animation-name: scroll-Down; /* call our keyframe named scroll-Up, use animattion ease-in and repeat it only 1 time  */
   -moz-animation-name: scroll-Down;
   animation-name: scroll-Down;
-  
-  -webkit-animation-timing-function: ease-in;
-  -moz-animation-timeing-function: ease-in;
-  animation-timing-function: ease-in;
-  
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  
-  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value */
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
- 
+}
+
+.scrollUp, .scrollDown, 
+.photo:active, .largePhoto:active, .photo:hover  { 
   -webkit-animation-duration:0.3s;
   -moz-animation-duration:0.3s;
   animation-duration: 0.3s;
 }
 
-/* Paste this css to your style sheet file or under head tag */
-/* This only works with JavaScript, 
-if it's not present, don't show loader */
+/* Loads a full screen black DIV to fade out during Loading. */
 .load-anim {
     background-color: black;
 	position: fixed;
@@ -131,9 +108,6 @@ if it's not present, don't show loader */
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -150,7 +124,7 @@ html, body {
     color: white;
 }
 
- /* custon horizontal scroll bar for photos*/
+/* custon horizontal scroll bar for photos*/
 body::-webkit-scrollbar { /* custom white scroll bar */
     background: white;
     width: 8px;
@@ -167,13 +141,13 @@ body::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded edg
 header {
     margin:0;
     padding:0;
-    height: 68px;
+    height: 74px;
     background-color: black;
 }
 
 /* Main title of site */
 /* Main font color for all links on the site. Still need to edit the background color of the scroll bar to match. */
-h4 a, nav a, footer a, h1 a{
+nav a, footer a, .gallery a {
     color: firebrick;
     text-decoration: none;
     font-weight: 500;
@@ -186,8 +160,7 @@ h4 a, nav a, footer a, h1 a{
 }
 
 /* Styling only the nav links when hovering or clicked on */
-nav a:hover, nav a:focus, footer a:hover, footer a:focus, 
-h1 a:hover, h1 a:focus, h4 a:hover, h4 a:focus   {
+nav a:hover, nav a:focus, footer a:hover, footer a:focus   {
     color: pink;
     text-decoration: none;
 }
@@ -229,7 +202,7 @@ header nav {
     padding-left: 1vmin;
     padding-right: 1vmin;
     padding-bottom: 1vmin;
-    padding-top: 72px;
+    padding-top: 75px;
     overflow: hidden;
     border-left: thin white solid;
     border-right: thin white solid;
@@ -242,7 +215,6 @@ header nav {
 
 footer {
     height: 40px;
-    
 }
 
 .contactinfo{
@@ -255,7 +227,6 @@ footer {
     border: thin white solid;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    
     height: 30px;
     margin-bottom: 10px;
     margin-left: auto;
@@ -265,7 +236,6 @@ footer {
 /* splash page css */
 /* splash page css */
 /* splash page css */
-
 
 .splash_body{
         /* for centering main div */
@@ -324,35 +294,42 @@ footer {
 }
 
 .splash_img {
-    display: block;
+    border-left: thin white solid;
     height: 100%;
     width: auto;
-    object-fit: contain;
-    border-left: thin white solid;
-    -webkit-transition: all 300ms;
-    -moz-transition: all 300ms;
-    -o-transition: all 300ms;
-    transition: all 300ms;
-    cursor: pointer;
 }
 
 .splash_img:hover {
+    -webkit-transform: scale(1.005);
+    -ms-transform: scale(1.005);
+    -o-transform: scale(1.005);
+    transform: scale(1.005);
+}
+
+.photo {
+    max-height: 56vh;
+    max-width: 98%;
+    border: thin white solid;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.photo:hover {
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    -o-transform: scale(1.01);
     transform: scale(1.01);
 }
 
-.splash_img:active {
-    transform: scale(1.003);
+.photo:active, .splash_img:active {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
 
-
-/* Modal Light Box*/
-/* Modal Light Box*/
-/* Modal Light Box*/
-
-.photo {
+.photo, .largePhoto, .splash_img  {
     display: block;
-    max-height: 56vh;
-    max-width: 98%;
     -webkit-transition-property: transform;
     -webkit-transition-duration: 200ms;
     -moz-transition-property: transform;
@@ -361,49 +338,34 @@ footer {
     -o-transition-duration: 200ms;
     transition-property: transform;
     transition-duration: 200ms;
-    margin: 5px;
     cursor: pointer;
-    border: thin darkgrey solid;
-    border-radius: 3px;
     user-select: none;
     -webkit-user-select: none;
     object-fit: cover;
     object-fit: contain;
-    overflow: hidden;
 }
 
-.photo:hover {
-    -webkit-transform: scale(1.006) !important;
-    -ms-transform: scale(1.006) !important;
-    transform: scale(1.006) !important;
-}
+/* Modal Light Box*/
+/* Modal Light Box*/
+/* Modal Light Box*/
 
-.photo:active {
-    -webkit-transform: scale(.988) !important;
-    -ms-transform: scale(.988) !important;
-    transform: scale(.988) !important;
+ .largePhoto:active{
+    -webkit-transform: scale(.988);
+    -ms-transform: scale(.988);
+    -o-transform: scale(.988);
+    transform: scale(.988);
 }
 
 .largePhoto {
-    max-height: 98%;
-    z-index: 1;
-    display: block;
-    
+    max-height: 95vh;
+    max-width: 98%;
+    width: auto;
+    height: auto;
+    border: thin white solid;
+    border-radius: 3px;
+    margin: 5px;
+    /* z-index: 1; */
 }
-
-.largePhoto:hover {
-    -webkit-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;
-}
-
-
-.largePhoto:active {
-    -webkit-transform: scale(.988) !important;
-    -ms-transform: scale(.988) !important;
-    transform: scale(.988) !important;
-}
-
 
 /* The Modal (background) */
 .lightBox {
@@ -419,77 +381,70 @@ footer {
 }
 
 /* The Close Button */
-.closeimage {
-    display: flex;  
-    width: 10%;
-    height: 10%;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px 5px 5px 5px;
-    opacity: 0.3;
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    font-size: calc(4 * (1vw + 1vh - 1vmin));
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 2;
-    transition: 0.5s ease;
-    user-select: none;
-    -webkit-user-select: none;
-    font-weight: bold;
-}
-
-.closeimage:hover,
-.closeimage:focus {
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0.9;
-    
-}
-
-/* Next & previous buttons */
-.previous,
+.closeimage, .previous,
 .nextone {
     display: flex;  
-    width: 10%;
-    height: 50%;
-    padding: 15px;
     align-items: center;
     position: absolute;
-    text-decoration: none;
-    opacity: 0.09;
+    padding: 15px;
+    width: 10%;
+    opacity: 0.3;
     font-weight: bold;
-    font-size: calc(3 * (1vw + 1vh - 1vmin));
-    transition: 0.5s ease;
+    z-index: 2;
     user-select: none;
     -webkit-user-select: none;
-    z-index: 2;
     cursor: pointer;
+    text-decoration: none;
+    font-size: calc(4 * (1vw + 1vh - 1vmin));
+    -webkit-transition-property: transform;
+    -webkit-transition-duration: 200ms;
+    -moz-transition-property: transform;
+    -moz-transition-duration: 200ms;
+    -o-transition-property: transform;
+    -o-transition-duration: 200ms;
+    transition-property: transform;
+    transition-duration: 200ms;
 }
 
+.closeimage {
+    justify-content: center;
+    border-radius: 5px 5px 5px 5px;
+    height: 10%;
+    right: 16px;
+    top: 10px;
+}
+/* Next & previous buttons */
 /* Position the "next button" to the right */
 
 .nextone {
-    right: 0;
-    border-radius: 5px 0 0 5px;
     justify-content: flex-end;
+    border-radius: 5px 0 0 5px;
+    height: 50%;
+    right: 0;
 }
 
 .previous {
-    left: 0;
-    border-radius: 0 5px 5px 0;
     justify-content: flex-start;
+    border-radius: 0 5px 5px 0;
+    height: 50%;
+    left: 0;
 }
 
-/* On hover, add a black background color with a little bit see-through */
+.closeimage:hover, .nextone:hover, .previous:hover, 
+.closeimage:focus, .nextone:focus, .previous:focus {
+    -webkit-animation-name: photoButton; /* call our keyframe named photoButton, use animattion linear and repeat it only 1 time  */
+    -moz-animation-name: photoButton;
+    animation-name: photoButton;
 
-.previous:hover,
-.previous:focus,
-.nextone:hover,
-.nextone:focus {
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity:0.7;
-    color: white;
+    -webkit-animation-duration:0.7s;
+    -moz-animation-duration:0.7s;
+    animation-duration: 0.7s;
+}
+
+.closeimage:active, .nextone:active, .previous:active {
+    -webkit-transform: scale(.90);
+    -ms-transform: scale(.90);
+    transform: scale(.90);
 }
 
 /* Caption text */
@@ -507,13 +462,8 @@ footer {
 
 /* Portrait mode Splash page */
 @media screen and (orientation: portrait) {
-
 .photo {
     max-height: 90vh;
-}
-
-.largePhoto {
-    max-height: 98%;
 }
 
 .navbar .navbar-nav  {
@@ -522,12 +472,20 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
 }
+.splash_left ul {
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+    
+.splash_left > a > h1 {
+    font-size: 1.7rem;
+    white-space: nowrap;
+}  
 
 .splash_main {
     max-height: 98%;
     height: auto;
-    width: auto;
-    max-width: 98%;
+    width: 98%;
 }
 
 .splash_left {
@@ -536,33 +494,27 @@ footer {
     flex-wrap: nowrap;
     border-style: none;
     justify-content: center;
-    
 }
-.splash_left ul{
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-    
-.splash_left h1{
-    font-size: 1.7rem;
-    white-space: nowrap;
-}    
     
 .splash_img {
-    width: 90%;
-    height: auto;
+   width: 90%;
+    height: 100%;
     object-fit: contain;
     border-left: thin white solid;
 }
 }
 
 @media screen and (max-width: 768px){
-.splash_left > a > h1{
-    font-size: 1.4rem;
-}  
+h3 {
+     font-size: 1.15rem;
+}
 
-.splash_left {
-    font-size: medium;
+header {
+    height: 61px;
+}
+
+header nav {
+    margin-top: 4px;
 }
 
 .navbar .navbar-nav  {
@@ -571,29 +523,6 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
 }
-}
-
-@media screen and (max-width: 576px){
-h4 {
-     font-size: 1.15rem;
-}
-
-header {
-    height: 60px;
-}
-
-nav {
-    margin-top: 4px;
-}
-
-.splash_left {
-    font-size: .7rem;
-}
-
-.splash_left > a > h1{
-    
-    font-size: 1rem;
-}  
 
 .gallery {
   padding-top: 62px;  
@@ -604,6 +533,24 @@ footer {
     height: 25px;
     font-size: .8rem;
 }
+.splash_left > a > h1{
+    font-size: 1.4rem;
+}  
+
+.splash_left {
+    font-size: medium;
+}
+}
+
+@media screen and (max-width: 576px){
+
+.splash_left {
+    font-size: .7rem;
+}
+
+.splash_left > a > h1{
+    font-size: 1rem;
+}  
 }
 /*for Iphone 6,7,8 and X */
 @supports (-webkit-overflow-scrolling: touch) 
