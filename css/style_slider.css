@@ -108,9 +108,7 @@
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background: url(../img/loading.svg) center no-repeat #000;
 }
 /* Animations end background: url(../img/loading.svg) center no-repeat #000; */
 

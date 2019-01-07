@@ -1,7 +1,7 @@
 // JavaScript File
 // Only pure javascript here. No JQuery since the library hasn't been loaded yet
 
-//INLINE HTML SVG. DOESN'T WORK VERY WELL, BUT IT WORKS
+//INLINE HTML SVG. DOESN'T WORK VERY WELL, BUT IT ALWAYS WORKS EVEN WITHOUT A .htaccess FILE
 //var loadDiv = document.createElement('div');
 //loadDiv.setAttribute("id","loader");
 //loadDiv.classList.add("load-anim");
@@ -10,24 +10,17 @@
 
 //loadDiv.insertAdjacentHTML('afterbegin', mySVG)
 
-//
 
 
-//var loadSVG = document.createElementNS('http://www.w3.org/2000/svg','svg');
-//loadDiv.appendChild(loadSVG);
-
-//loadSVG.outerHTML += mySVG;
-
-
-// USING AN SVG FILE INSIDE AN IMG WORKS SMOOTHLY ONLY WHEN SPECIFYING THE TYPE "image/svg+xml" in the htaccess file.
+// USING AN SVG FILE INSIDE AN IMG WORKS SMOOTHLY ONLY WHEN SPECIFYING THE TYPE "image/svg+xml" in the .htaccess file.
 var loadDiv = document.createElement('div');
 loadDiv.setAttribute("id","loader");
 loadDiv.classList.add("load-anim");
 document.body.appendChild(loadDiv);
 
-var loadSVG = document.createElement('img');
-loadSVG.setAttribute("src","img/loading.svg");
-//alert(window.location.pathname);
-loadSVG.setAttribute("type","image/svg+xml");
+// USING AN SVG FILE INSIDE AN IMG WORKS SMOOTHLY ONLY WHEN SPECIFYING THE TYPE "image/svg+xml" in the .htaccess file.
+//var loadSVG = document.createElement('img');
+//loadSVG.setAttribute("src","img/loading.svg");
+//loadSVG.setAttribute("type","image/svg+xml");
 
-loadDiv.appendChild(loadSVG);
+//loadDiv.appendChild(loadSVG);
