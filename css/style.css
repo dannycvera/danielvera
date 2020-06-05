@@ -18,11 +18,11 @@ html, body {
 }
 
 /* main container holding everything together as tightly as it can*/
-main{
+main {
     border-radius:1.3vmin;
-    border:thin #ffffff solid;
-    height: 92%;
-    width: 92%;
+    border:thin white solid;
+    height: 96%;
+    width: 96%;
     text-align: center;
 }
 
@@ -33,6 +33,11 @@ h1 {
     font-size: 4.5vmin;
 }
 
+.logo{
+ color: white;
+ font-weight: 200;
+}
+
 /* For verticle centering and wrapping links using flex*/
 .flex_center {
     display: flex;
@@ -41,8 +46,9 @@ h1 {
 }
 
 
-/* contains two nav's side by side */
-header{  
+/* contains two na
+    align-content: space-around;v's side by side */
+header {  
     display: flex;
     justify-content: center;
     height: 14%;
@@ -50,10 +56,10 @@ header{
 }
 
 /* top link container*/
-nav{
+nav {
     padding-left: 3%;
     padding-right: 3%;
-    font-size: 2.6vmin;
+    font-size: 3vmin;
     height: 100%;
     width: 50%;
 }
@@ -64,7 +70,7 @@ a {
     text-decoration: none;
 }
 
-a:visited{
+a:visited {
     text-decoration: none;
 }
 
@@ -81,8 +87,6 @@ a:visited{
 
 /* Styling only the nav links when hovering or clicked on */
 .links a:hover {
-    font-weight: 600;
-    background-color: #000;
     color: indianred;
 }
 
@@ -91,15 +95,14 @@ a:visited{
 }
 
 /* Photo Gallery is in the article tag*/
-article{                 /* contains all the images */
+article {                 /* contains all the images */
     display: flex;
     flex-flow: row nowrap;/* needed so the div's and images stay side by side */
-    border-top:thin #ffffff solid;
-    height:76%;
+    border-top:thin white solid;
+    height:78%;
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
-
  }
  
  /* custon horizontal scroll bar for photos*/
@@ -118,39 +121,31 @@ article::-webkit-scrollbar-thumb {  /* custom red scroll bar thumb with rounded 
 
 /* needed to properly size each image */
 .photoframe {
-    display: flex;
     height: 100%; /* all images are the same height, but the width will stretch as needed  */
-    flex: 0 0 auto;
-}                   
+}                       
 
 /* need 5% for the horizontal scroll bar and boarders*/
 .photoborder {
-    height: 95%;
+    height: 97%;
     border:thin darkgrey solid;
     margin: 1vmin;
-    flex: 0 0 auto;
 }
 
 .photoborder:hover {
-    height: 95%;
-    border-width: thin;
-    border-style: solid;
     border-color: white;
-    margin: 1vmin;
-    flex: 0 0 auto;
 }
 
 /* contains bottom footers side by side */
 section {
     display: flex;
-    height: 10%;
+    height: 8%;
     width: 100%;
 }
 
 footer {
     height: 100%;
     width: 50%;
-    font-size: 2.3vmin;
+    font-size: 2.8vmin;
     font-weight: 500;
 }
 
@@ -168,7 +163,6 @@ footer {
     align-items: center;
     justify-content: center;
     flex-grow: 2;
-    
     padding: 3%;
 }
 
@@ -176,7 +170,7 @@ footer {
     height: 100%;
     align-items: center;
     justify-content: center;
-    border-left: thin #ffffff solid;
+    border-left: thin white solid;
 }
 
 .splash_img {
@@ -187,7 +181,7 @@ footer {
 /* cant use white-space: nowrap, otherwise the image starts getting pushed off screen */
 h2 {
     text-decoration: none;
-    font-size: 4.6vmin;
+    font-size: 5.6vmin;
 }
 
 
@@ -195,10 +189,12 @@ h2 {
 /* Modal Light Box*/
 /* Modal Light Box*/
 
-.photo_lightbox{
+.photo_lightbox {
     height: 98%;
     max-width: 98%;
     object-fit: contain;
+    border: thin white solid;
+    
 }
 
 .cursor {
@@ -267,7 +263,7 @@ h2 {
     margin-top: -50px;
     color: white;
     font-weight: bold;
-    font-size: 2vmax;
+    font-size: 2.4vmax;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -289,11 +285,14 @@ h2 {
 
 /* Caption text */
 .caption-container {
-    font-size: 2vmax;
-    color: white;
-    position: absolute;
-    top: 0;
-    right: 50%;
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  padding-top: 0;
+  text-align: center;
+  color: white;
+  font-size: 2vmin;
 }
 
 
@@ -305,16 +304,12 @@ h2 {
     display: flex;
     height: auto;
     width: auto;
+    max-width: 96%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-main{
-    border-radius:1.3vmin;
-    border:thin #ffffff solid;
-    text-align: center;
-}
 
 /* using h2 for title on splash page due to media change issues on other pages */
 /* Can't use the same media/title font size changes for the splash page as the gallery page */
@@ -326,7 +321,7 @@ h2 {
 }
 
 /* Rotating the h2 title to fit on a portait screen/ipads */
-.title_rotate{
+.title_rotate {
     transform: rotate(-90deg);
     text-align: center;
 }
@@ -337,29 +332,30 @@ h2 {
 }
     
 .splash_right {
-    flex-basis: 98%;
+    flex-basis: 85%;
     object-fit: contain;
-    border-left: thin #ffffff solid;
+    border-left: thin white solid;
 }
 
 .splash_img {
+    display: block;
     height: 100%;
     width: 100%;
 }
 
 /* puts the title and navigatigation on top of each other for gallery pages */
 /* contains two nav's side by side */
-header{  
+header {  
     display: block;
     height: 14%;
     width: 100%;
 }
 
 /* top link container*/
-nav{
+nav {
     padding-left: 2%;
     padding-right: 2%;
-    font-size: 2.6vmin;
+    font-size: 3.4vmin;
     height: 50%;
     width: auto;
 }
@@ -370,36 +366,11 @@ nav{
 @media screen and (min-aspect-ratio: 64/30) {
 
 .flex_main {
-    height: 92%;
     width: 70%;
 }
 
-main{
-    border-radius: 1.3vmin;
-    border:thin #ffffff solid;
-    height: 98%;
-    width: 98%;
-    text-align: center;
-}
-
-nav{
-    font-size: 3.4vmin;
-    height: 100%;
-    width: 50%;
-}
-
-footer {
-    height: 100%;
-    width: 50%;
-    font-size: 2.8vmin;
-    font-weight: 500;
-}
-
-h2 a{
-    text-decoration: none;
+h2 {
     font-size: 5vmin;
-    text-align: center;
-    white-space: nowrap;
 }
 /* Ultra Wide Splash page end*/
 }
