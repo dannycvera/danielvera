@@ -1,0 +1,603 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:200,400,500,600');
+
+/* Used to include padding and border within height or width percentages */
+/* not compatible with IE 11. Had to remove*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* Animations*/
+/* make keyframes that tell the start state and the end state of our object */
+
+@keyframes photoButton { 
+    0% { opacity:0.2;background-color: rgba(0, 0, 0, 0.1); } 
+    50% { opacity:1; background-color: rgba(0, 0, 0, 0.7);} 
+    100% { opacity:0.5; background-color: rgba(0, 0, 0, 0.2);} 
+}
+
+@keyframes scroll-Up { 100% { transform: translate(0,-100%); } }
+
+@keyframes scroll-Down { 0% { transform: translate(0,-100%); } }
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+.page-fade-in, .page-fade-out,.scrollUp, .scrollDown,
+.closeImage:hover, .closeImage:focus, .previous:hover,
+.previous:focus, .nextOne:hover, .nextOne:focus,
+.photo:active, .largePhoto:active, .photo:hover {
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode:both;
+}
+
+.page-fade-in {
+  opacity:0;  /* make things invisible upon start*/
+  animation-name: fadeIn;
+}
+
+.page-fade-out {
+  opacity:1;  /* make things visable upon start */
+  animation-name: fadeOut;
+}
+
+.page-fade-in, .page-fade-out {  
+  animation-duration: 0.5s;
+}
+
+.scrollUp {
+  animation-name: scroll-Up;
+}
+
+.scrollDown {
+  animation-name: scroll-Down;
+}
+
+.scrollUp, .scrollDown, 
+.photo:active, .largePhoto:active, .photo:hover  , .buttonPress { 
+  animation-duration: 0.3s;
+}
+
+/* Loads a full screen black DIV to fade out during Loading. */
+.loadAnim {
+    background-color: black;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../img/loading.svg) center no-repeat #000;
+}
+
+/* Animations end background: url(../img/loading.svg) center no-repeat #000; */
+
+html, body {
+    /* for centering main div */
+    /*min-height: 100vh;*/
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 100%;
+    color: white;
+    scrollbar-color: firebrick white;
+    scrollbar-width: 8px;
+}
+
+body::-webkit-scrollbar { 
+    background: white;
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {  
+    width: 8px;
+    background-color: firebrick;
+    border-radius: 8px;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    margin:0;
+    padding:0;
+    height: 65px;
+    background-color: black;
+    z-index: 3;
+
+}
+
+/* Main title of site */
+/* Main font color for all links on the site. Still need to edit the background color of the scroll bar to match. */
+nav a, footer a, .gallery a {
+    color: firebrick;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Styling only the nav links when hovering or clicked on */
+nav a:hover, nav a:focus, footer a:hover, footer a:focus   {
+    color: pink;
+    text-decoration: none;
+}
+
+.current {
+    color: salmon;
+}
+
+button:focus,button:active, .hamburger:focus, .hamburger:active {
+   outline: none;
+   box-shadow: none;
+}
+
+/* CSS based Hamburger menu*/
+.hamburger {
+    display: none;
+}
+
+
+
+/* top link container*/
+header > nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    margin-top: 5px;
+    border:thin white solid;
+    background-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+/* so navigation links stretch as needed and have a minimum width for breathing room */
+}
+
+/* for white span tag on name*/
+.logo{
+    color: white;
+    font-weight: 200;
+}
+
+h1 {
+     font-size: 1.8rem;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     
+}
+
+a.navbar-brand {
+    display: flex;
+    flex-shrink:0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.nav-link{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.navbar-item{
+    margin-left: auto;
+}
+
+#navbarNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+}
+/*
+.expand{
+    display: flex;
+    
+}
+.collapse{
+    display: none;
+}
+*/
+/* Photo Gallery is in the article tag*/
+/* contains all the images */
+.gallery {  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 98%;
+    padding-left: 1vmin;
+    padding-right: 1vmin;
+    padding-bottom: 1vmin;
+    padding-top: 66px;
+    overflow: hidden;
+    border-left: thin white solid;
+    border-right: thin white solid;
+    margin: auto;
+    height: auto;
+    min-height: 90vh;
+}
+
+/* contains bottom footers side by side */
+
+footer {
+    height: 40px;
+}
+
+.contactinfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 98%;
+    white-space:  nowrap;
+    flex: 0;
+    border: thin white solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photo {
+    border-width: thin;
+    max-height: 56vh;
+    margin: 6px;
+}
+
+.photo:hover {
+    border: thin indianred solid;
+    background-color: indianred;
+}
+
+.photo:active, .largePhoto:active {
+    transform: scale(.988);
+}
+
+.photo, .largePhoto  {
+    display: flex;
+    transition-property: transform;
+    transition-duration: 200ms;
+    cursor: pointer;
+    user-select: none;
+    object-fit: cover;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 3px;
+    border-color: white;
+    border-style: solid;
+    max-width: 98%;
+}
+
+/* Modal Light Box*/
+
+.largePhoto {
+    border-width: thick;
+    max-height: 95%;
+    height: auto;
+    width: auto;
+}
+
+.active {
+    /*DO Not DELETE. Determines the active photo in the gallery */
+}
+.swipeLeft {
+    transform: translateX(-100vw);
+}
+.swipeRight {
+    transform: translateX(100vw);
+}
+.buttonPress{
+    transform: scale(.992);
+}
+
+/* The Modal (background) */
+.lightBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.displayNone {
+    display: none;
+}
+
+/* The Close Button */
+.closeImage, .previous,
+.nextOne {
+    align-items: center;
+    padding: 15px;
+    position: absolute;
+    width: 10%;
+    opacity: 0.3;
+    font-weight: bold;
+    z-index: 2;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: calc(4 * (1vw + 1vh - 1vmin));
+    transition-property: transform;
+    transition-duration: 200ms;
+}
+
+.closeImage {
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    height: 10%;
+    right: 16px;
+    top: 10px;
+}
+/* Next & previous buttons */
+/* Position the "next button" to the right */
+
+.nextOne {
+    display: flex;
+    line-height: 100%;
+    justify-content: flex-end;
+    text-align: right;
+    border-radius: 5px 0 0 5px;
+    height: 50%;
+    right: 0;
+}
+
+.previous {
+    display: flex;
+    line-height: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: 0 5px 5px 0;
+    height: 50%;
+    left: 0;
+}
+
+.closeImage:hover, .nextOne:hover, .previous:hover, 
+.closeImage:focus, .nextOne:focus, .previous:focus {
+    animation-name: photoButton;
+    animation-duration: 0.7s;
+}
+
+.closeImage:active, .nextOne:active, .previous:active {
+    transform: scale(.90);
+}
+
+/* Caption text */
+.caption-container {
+  position: absolute;
+  bottom: 0;
+  height: 20%;
+  width: 100%;
+  padding-top: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5vmax;
+  z-index: 2;
+}
+
+#photoTitle {
+    font-size: 2.2vmax;
+}
+
+/* splash page css */
+
+.splash_main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    border-radius: 5px;
+    border:thin white solid;
+    height: 98%;
+    width: 98%;
+    overflow: hidden;
+}
+
+.splash_left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 2 2 10%;
+    flex-wrap: wrap;
+    font-size: larger;
+    border-top: thin white solid;
+    border-bottom: thin white solid;
+}
+
+.splash_left > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.splash_left > .navbar-brand{
+    width: auto;
+    padding: 10px;
+    text-align: right;
+    
+}
+
+.splash_img {
+    border-left: thin white solid;
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+
+}
+
+.splash_img:hover {
+    border-left: thin indianred solid;
+}
+
+/* Portrait mode Splash page */
+@media screen and (orientation: portrait) {
+.photo {
+    max-height: 90vh;
+}
+
+h1 {
+     font-size: 1.6rem;
+}
+header nav {
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
+nav a, footer a, .gallery a {
+    font-size: 20px;
+}
+
+#navbarNav  {
+    justify-content: space-around;
+}
+
+.splash_main {
+    max-height: 98%;
+    height: auto;
+    
+}
+
+.splash_img {
+    width: 90%;
+    height: 90%;
+}
+
+.splash_left{
+    transform: rotate(-90deg);
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex: 0 2 auto;
+    width: 10%;
+    border-top: none;
+    border-bottom: none;
+}
+
+.splash_left > div  {
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.splash_left > a > h1 {
+    
+    white-space: nowrap;
+}  
+/*
+.splash_img {
+    width: 90%;
+    height: 90%;
+}
+
+.splash_left {
+    /*width: 10%;
+   
+    width: auto;
+    height: auto;
+    transform: rotate(-90deg);
+    flex-wrap: nowrap;
+    border-style: none;
+    justify-content: center;
+    border: thin white solid;
+}
+
+.splash_left div  {
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+   
+.splash_left > a > h1 {
+    
+    white-space: nowrap;
+}  
+*/ 
+   
+
+}
+
+@media screen and (max-width: 768px){
+.photo {
+    max-height: 90vh;
+}
+h1 {
+     font-size: 1.3rem;
+}
+nav a, footer a, .gallery a {
+    font-size: 18px;
+}
+
+header nav {
+    flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a.navbar-brand {
+    flex-shrink: 1;
+}
+
+.navbar-item{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+#navbarNav {
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.hamburger {
+    margin-left: auto;
+    display: block;
+    cursor: pointer;
+}
+
+#navbarNav.expand{
+    display: flex;
+}
+
+
+.bar1, .bar2, .bar3 {
+  width: 26px;
+  height: 2px;
+  background-color: firebrick;
+  margin: 5px 0;
+  
+}
+
+
+footer {
+    margin-bottom: 5px;
+    height: 25px;
+    font-size: .8rem;
+}
+.splash_left > a > h1{
+    font-size: 1.4rem;
+}  
+}
+
+@media screen and (max-width: 576px){
+
+
+
+.splash_left > a > h1{
+    font-size: 1.2rem;
+}  
+}
+

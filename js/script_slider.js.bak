@@ -1,0 +1,331 @@
+// JavaScript File
+
+window.onload = function() {
+  window.addEventListener("resize", refreshIMG);
+  
+  fade(document.getElementsByClassName("load-anim")[0]);
+  
+  var lastScrollTop = 0;
+
+  var navbar = document.getElementsByTagName('header')[0];
+  
+  window.onscroll = function(event){
+      
+      var st = document.documentElement.scrollTop;
+      if ((lastScrollTop < st)  &&  (navbar.offsetHeight < st) && (lastScrollTop > 56) &&  (navbar.offsetHeight > 0)) 
+      { 
+        navbar.classList.add("scrollUp");
+        navbar.classList.remove("scrollDown");
+      }
+      else if ((! navbar.classList.contains("scrollDown")) && (! navbar.classList.contains("scrollUp")) ||  (Math.abs(lastScrollTop - st) < 10) && (navbar.offsetHeight < st))
+      {
+        // do nothing for the above cases
+      }
+      else
+      //if  ((st > 35))// && ((st - lastScrollTop) > 5)) 
+      { 
+        navbar.classList.add("scrollDown");
+        navbar.classList.remove("scrollUp");
+      }
+      lastScrollTop = st;
+  };
+
+  var photo = document.querySelectorAll(".photo");
+
+  for (var i = 0; i < photo.length; i++)
+  {
+    //photo[i].addEventListener("click", function(){
+    
+    (function(index){photo[i].onclick = function(){
+      if (document.getElementsByClassName("lightBox").length > 0)
+        {
+          plusSlides(1);
+        }
+      else
+        {
+          openModal(index + 1);
+        }
+      };
+    })(i);
+  }
+};
+
+function refreshIMG(){
+  if (document.getElementsByClassName("largePhoto").length > 0)
+  {
+    document.getElementsByClassName("largePhoto")[slideIndex - 1].classList.add("buttonPress");
+    setTimeout(function(){ document.getElementsByClassName("largePhoto")[slideIndex - 1].classList.remove("buttonPress"); }, 200);
+    //$('.largePhoto').addClass('buttonPress');
+    //setTimeout(function(){ $('.largePhoto').removeClass('buttonPress'); }, 200);
+  }
+}
+
+function openModal(n) {
+  //check if lightbox is already open. Then just advance the image
+  if(click_touchend_in_progress)return;
+  click_touchend_in_progress = true;
+  setTimeout(function(){
+    click_touchend_in_progress = false;
+  },200);
+  
+  document.getElementsByTagName('header')[0].style.display = "none"; 
+  document.getElementsByTagName('footer')[0].style.display = "none";
+  
+  document.querySelector(".closeImage").style.display = "flex";
+  document.querySelector(".closeImage").addEventListener("click", closeModal);
+  document.querySelector(".previous").style.display = "flex";
+  document.querySelector(".previous").addEventListener("click", function(){plusSlides(-1)});
+  document.querySelector(".nextOne").style.display = "flex";
+  document.querySelector(".nextOne").addEventListener("click", function(){plusSlides(1)});
+  document.querySelector(".caption-container").style.display = "block";
+  
+  document.getElementsByClassName("gallery")[0].className = "lightBox";
+
+  //$(".gallery").addClass("lightBox").removeClass("gallery");
+  /*
+  var close = "<a class='closeImage noSwipe'>&times;</a>";
+  var prev = "<a class='previous noSwipe'><p>&#10094;</p></a>";
+  var next = "<a class='nextOne noSwipe'><p>&#10095;</p></a>";
+  var caption = "<div class='caption-container'><p id='caption'></p></div>";
+  $(".lightBox").append(close+" "+prev+" "+next+" "+caption);
+  */
+  
+  /*
+  var lightBox =  document.getElementsByClassName("lightBox")[0];
+
+  //Create photo gallery control buttons on the fly
+  var close = document.createElement("anchor");
+  close.classList.add("closeImage", "noSwipe");
+  var closeText = document.createTextNode("\u00D7");
+  close.appendChild(closeText);
+
+  lightBox.appendChild(close);
+
+  var prev = document.createElement("anchor");
+  prev.classList.add("previous", "noSwipe");
+  var prevText = document.createTextNode("\u276E");
+  prev.appendChild(prevText);
+  
+  lightBox.appendChild(prev);
+  
+  var next = document.createElement("anchor");
+  next.classList.add("nextOne", "noSwipe");
+  var nextText = document.createTextNode("\u276F");
+  next.appendChild(nextText);
+  
+  lightBox.appendChild(next);
+  
+  var caption = document.createElement("div");
+  caption.classList.add("caption-container");
+  var captPara = document.createElement("p");
+  captPara.setAttribute("id", "caption");
+  caption.appendChild(captPara);
+  
+  lightBox.appendChild(caption);
+  */
+  
+
+  /*
+  $(".closeImage").click(function(){
+    closeModal();
+  });
+  $(".previous").click(function(){
+    plusSlides(-1);
+  });
+  $(".nextOne").click(function(){
+    plusSlides(1);
+  });
+  */
+  
+  //$(".photo").addClass("largePhoto").removeClass("photo");
+  
+  //change the class of all images from "largePhoto" to "photo"
+  let images = document.querySelectorAll(".photo");
+  for (var i = 0; i < images.length; i++){
+      images[i].className = "largePhoto"; 
+  }
+  
+  //Enable swiping...
+  $(".lightBox").swipe("enable");
+	$(".lightBox").swipe( {
+		//Generic swipe handler for all directions
+		swipeLeft: function() {
+		  document.getElementsByClassName("largePhoto")[slideIndex-1].classList.add("swipeLeft");
+      plusSlides(-1);
+		},
+		swipeRight: function() {
+		  document.getElementsByClassName("largePhoto")[slideIndex-1].classList.add("swipeRight");
+      plusSlides(1);
+		},
+		swipeUp: function() {
+		  //alert("swipeup");
+		  closeModal();
+		},
+		
+		//Default is 75px, set to 0 for demo so any distance triggers swipe
+		threshold: 10,
+		excludedElements: ".closeImage .previous .nextOne",
+	});
+	
+  currentSlide(n);
+}
+
+var click_touchend_in_progress = false;
+
+function closeModal() {
+  if(click_touchend_in_progress)return;
+  click_touchend_in_progress = true;
+  setTimeout(function(){
+    click_touchend_in_progress = false;
+  },200);
+  
+  $(".lightBox").swipe("disable");
+  
+  //$(".lightBox").removeClass("lightBox").addClass("gallery");
+  document.querySelector(".lightBox").className = "gallery";
+  
+  document.querySelector(".closeImage").style.display = "none";
+  document.querySelector(".previous").style.display = "none";
+  document.querySelector(".nextOne").style.display = "none";
+  document.querySelector(".caption-container").style.display = "none";
+ 
+  //$(".gallery > .closeImage, .gallery > .previous, .gallery > .nextOne, .gallery > .caption-container").remove();
+  
+  //$(".largePhoto").addClass("photo").removeClass("largePhoto").show();
+  //change the class of all images from "photo" to "largePhoto"
+  let largeImages = document.querySelectorAll(".largePhoto");
+  
+  for (let i = 0; i < largeImages.length; i++) {
+      largeImages[i].style.display = "flex";
+      largeImages[i].className = "photo";
+  }
+  
+  document.getElementsByTagName('header')[0].style.display = "block";
+  document.getElementsByTagName('footer')[0].style.display = "block";
+  unfade(document.getElementsByTagName("body")[0]);
+  // scroll to position of current photo when returning to main page. Takeing into account size of navbar, padding and margins
+  var photoPosition = document.getElementsByClassName("photo")[slideIndex-1].offsetTop;
+  var articlePadding = document.getElementsByTagName("nav")[0].offsetTop + document.querySelector("nav").offsetHeight;
+  var computeStyle = getComputedStyle(document.getElementsByClassName("photo")[slideIndex-1]);
+  var photoMargin = parseInt(computeStyle.getPropertyValue("margin-Top"));
+  window.scrollTo(0,photoPosition - articlePadding - photoMargin);
+}
+
+var slideIndex = 1;
+
+function plusSlides(n) {
+  //alert(click_touchend_in_progress);
+  if(click_touchend_in_progress)return;
+  click_touchend_in_progress = true;
+  setTimeout(function(){
+    click_touchend_in_progress = false;
+  },200);
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  //if (n > $(".largePhoto").length) {slideIndex = 1};
+
+  let largePhotos = document.querySelectorAll(".largePhoto");
+  if (n > largePhotos.length) {slideIndex = 1}
+  
+  if (n < 1) {slideIndex = largePhotos.length}
+
+  let active = document.querySelector(".active");
+  
+  if (active == null){
+      for (let i = 0; i < largePhotos.length; i++ ){
+        largePhotos[i].style.display = "none";
+      }
+      largePhotos[slideIndex-1].style.display = "flex";
+      largePhotos[slideIndex-1].classList.add("active");
+      unfade(largePhotos[slideIndex-1]);
+  }
+  else if (active.classList.contains("swipeLeft")){
+    setTimeout(function(){
+      active.style.display = "none";
+      active.classList.remove("active","swipeLeft");
+      largePhotos[slideIndex-1].style.display = "flex";
+      largePhotos[slideIndex-1].classList.add("active");
+      unfade(largePhotos[slideIndex-1]);
+    },200);
+  }
+  else if (active.classList.contains("swipeRight")){
+    setTimeout(function(){
+      active.style.display = "none";
+      active.classList.remove("active", "swipeRight");
+      largePhotos[slideIndex-1].style.display = "flex";
+      largePhotos[slideIndex-1].classList.add("active");
+      unfade(largePhotos[slideIndex-1]);
+    },200);
+  }
+  else{
+      active.style.display = "none";
+      active.classList.remove("active");
+      largePhotos[slideIndex-1].style.display = "flex";
+      largePhotos[slideIndex-1].classList.add("active");
+      unfade(largePhotos[slideIndex-1]);
+  }
+}
+
+  
+  /*
+  if ($(".largePhoto").hasClass("swipeLeft"))
+  {
+    setTimeout(function(){
+      $(".largePhoto").css("display","none").removeClass("active");
+      $(".largePhoto").removeClass("swipeLeft");
+      $(".largePhoto").eq(slideIndex-1).css("display","flex");
+      unfade(document.getElementsByClassName("largePhoto")[slideIndex-1]);
+    },200);
+  }
+  else if ($(".largePhoto").hasClass("swipeRight"))
+  {
+    setTimeout(function(){
+      $(".largePhoto").css("display","none").removeClass("active");
+      $(".largePhoto").removeClass("swipeRight");
+      $(".largePhoto").eq(slideIndex-1).css("display","flex");
+      unfade(document.getElementsByClassName("largePhoto")[slideIndex-1]);
+    },200);
+  }
+  else
+  {
+    $(".largePhoto").css("display","none").removeClass("active");
+    $(".largePhoto").eq(slideIndex-1).css("display","flex");
+    unfade(document.getElementsByClassName("largePhoto")[slideIndex-1]);
+  }
+  $("#caption").text($(".largePhoto").eq(slideIndex-1).attr("alt"));
+  */
+
+
+// using javascript fade in due to issues with Chrome for IOS
+
+function unfade(element) {
+    var op = 0.01;  // initial opacity
+    element.style.opacity = op;
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += 0.05;
+    }, 15);
+}
+
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.01){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= 0.05;
+    }, 15);
+}

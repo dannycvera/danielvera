@@ -4,7 +4,7 @@
       <meta charset="utf-8"/>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <title>daniel vera photography</title>
+      <title>daniel vera photography - time</title>
       <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -16,28 +16,43 @@
       <meta name="theme-color" content="#ffffff">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="css/style_slider.css" type="text/css">
-    </head>    
+    </head>
     <body>
       <div id="loader" class="displayNone"></div>
       <script>document.querySelector("#loader").className = "loadAnim";</script>
-      <article class="lightBox">  
-        <section class="splash_main">
-            <!-- site title -->
-          <nav class="navbar-expand splash_left">
-            <a class="navbar-brand" href="birds.html"><h1><span class="logo">daniel vera</span> photography</h1></a>
-            <div>
+      <header>
+        <nav class="navbar">
+          <a class="navbar-brand" href="./"><h1><span class="logo">daniel vera</span> photography</h1></a>
+          <div class="hamburger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+          <div id="navbarNav">
               <a class="nav-link" href="birds.html">birds</a>
               <a class="nav-link" href="night.html">night</a>
-              <a class="nav-link" href="time.html">time</a>
+              <a class="nav-link current" href="time.html">time</a>
               <a class="nav-link" href="landscapes.html">landscapes</a>
-              <a class="nav-link" href="contactme.html">contact</a>
-            </div>
-          </nav>
-            <!-- large splash image. can't put inside a div otherwise issues with IE-->
-          <img class="splash_img" src="img/photo01.jpg" onclick="location.href='birds.html';" alt="red maple tree">
-        </section>
+              <a class="navbar-item" href="contactme.html">contact</a>
+          </div>  
+        </nav>
+      </header>
+      <!-- photo gallery-->
+      <article class="gallery">
+        <a id="close" class="closeImage noSwipe displayNone">×</a>
+        <a id="prev" class="noSwipe displayNone">❮</a>
+        <a id="next" class="noSwipe displayNone">❯</a>
+        <div class="caption-container displayNone"><h3 id="photoTitle"></h3><p id="caption"></p></div>
       </article>
+      <!-- bottom links with email and phone number-->
+      <footer>
+        <div class="contactinfo">
+          <a href="mailto:photo@danielvera.com">photo@danielvera.com</a>
+          <a href="tel:(646)456-5521">(646)456-5521</a>
+        </div>  
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
       <script src="js/photoLibrary.js"></script>
-      <script src="js/index.js"></script>
+      <script src="js/photoGallery.js"></script>
     </body>
 </html>
