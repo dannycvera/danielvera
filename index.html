@@ -1,43 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8"/>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <title>daniel vera photography</title>
-      <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-      <link rel="manifest" href="img/site.webmanifest">
-      <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
-      <link rel="shortcut icon" href="img/favicon.ico">
-      <meta name="msapplication-TileColor" content="#da532c">
-      <meta name="msapplication-config" content="img/browserconfig.xml">
-      <meta name="theme-color" content="#ffffff">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/style_slider.css" type="text/css">
-    </head>    
-    <body>
-      <div id="loader" class="displayNone"></div>
-      <script>document.querySelector("#loader").className = "loadAnim";</script>
-      <article class="lightBox">  
-        <section class="splash_main">
-            <!-- site title -->
-          <nav class="navbar-expand splash_left">
-            <a class="navbar-brand" href="birds.html"><h1><span class="logo">daniel vera</span> photography</h1></a>
-            <div>
-              <a class="nav-link" href="birds.html">birds</a>
-              <a class="nav-link" href="night.html">night</a>
-              <a class="nav-link" href="time.html">time</a>
-              <a class="nav-link" href="landscapes.html">landscapes</a>
-              <a class="nav-link" href="contactme.html">contact</a>
-            </div>
-          </nav>
-            <!-- large splash image. can't put inside a div otherwise issues with IE-->
-          <img class="splash_img" src="img/photo01.jpg" onclick="location.href='birds.html';" alt="red maple tree">
-        </section>
-      </article>
-      <script src="js/photoLibrary.js"></script>
-      <script src="js/index.js"></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>daniel vera photography</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="img/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style_slider.css" type="text/css" />
+  </head>
+  <body>
+    <div id="loader" class="displayNone"></div>
+    <script>
+      document.querySelector("#loader").className = "loadAnim";
+    </script>
+    <article class="lightBox">
+      <section class="splash_main">
+        <!-- site title -->
+        <nav class="navbar-expand splash_left">
+          <a class="navbar-brand" href="birds.html"
+            ><h1><span class="logo">daniel vera</span> photography</h1></a
+          >
+          <div>
+            <a class="nav-link" href="birds.html">birds</a>
+            <a class="nav-link" href="night.html">night</a>
+            <a class="nav-link" href="time.html">time</a>
+            <a class="nav-link" href="landscapes.html">landscapes</a>
+            <a class="nav-link" href="contactme.html">contact</a>
+          </div>
+        </nav>
+        <!-- large splash image. can't put inside a div otherwise issues with IE-->
+        <img
+          class="splash_img"
+          src="img/photo01.jpg"
+          onclick="location.href='birds.html';"
+          alt="red maple tree"
+        />
+      </section>
+    </article>
+    <script src="js/photoLibrary.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
